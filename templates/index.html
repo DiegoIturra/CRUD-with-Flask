@@ -1,0 +1,24 @@
+{% with messages = get_flashed_messages() %} <!-- Obtener mensaje que envia el servidor-->
+
+<!--Si existen mensajes , recorrer los mensajes y mostrarlos en un flash-->
+{% if messages %}
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {%endfor%}
+{% endif %}
+
+{% endwith %}
+
+<form action="/add" method="POST">
+    <input type="text" name="fullname" placeholder="book name">
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    {%for book in book_list%}
+        <div><li>{{book}}</li></div>
+        <div style="display: inline;"><a href="">Delete</a></div>
+        <div style="display: inline;"><a href="">Edit</a></div>
+        <br><br>
+    {%endfor%}
+</ul>
