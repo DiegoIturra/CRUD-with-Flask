@@ -10,15 +10,29 @@
 {% endwith %}
 
 <form action="/add" method="POST">
-    <input type="text" name="fullname" placeholder="book name">
+    <input type="text" name="book_name" placeholder="book name">
+    <input type="text" name="author" placeholder="Author"">
+    <input type="text" name="year" placeholder="year">
     <button type="submit">Add</button>
 </form>
 
 <ul>
+
+    <div>
+        <p style="display: inline;">Book</p>
+        <p style="display: inline;">Author</p>
+        <p style="display: inline;">Year</p>
+    </div>
+
     {%for book in book_list%}
-        <div><li>{{book}}</li></div>
-        <div style="display: inline;"><a href="">Delete</a></div>
-        <div style="display: inline;"><a href="">Edit</a></div>
+
+        <div>
+            <li>{{book.1}}</li>
+            <li style="display: inline;">{{book.2}}</li>
+            <li style="display: inline;">{{book.3}}</li>
+        </div>
+        <div style="display: inline;"><a href="/delete/{{book.0}}">Delete</a></div>
+        <div style="display: inline;"><a href="/edit">Edit</a></div>
         <br><br>
     {%endfor%}
 </ul>
